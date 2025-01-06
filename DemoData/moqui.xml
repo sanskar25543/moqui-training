@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-facade-xml>
+    <MoquiTraining.moqui_training
+            trainingId="101"
+            trainingName="AI"
+            trainingDate="01-06-2024"
+            trainingPrice="1000"
+            trainingDuration="3"/>
+</entity-facade-xml>
