@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml type="seed">
+    <load service="create#MoquiTraining" file="DemoData/ServiceDemoData.csv" type="csv"/>
+</entity-facade-xml>

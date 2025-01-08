@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
+<!--    Entity-Auto Service-->
+<service verb="create" noun="MoquiTraining" type="entity-auto">
+   <in-parameters>
+    <parameter name="trainingName" required="true"/>
+    <parameter name="trainingDate" required="true"  format="MM/dd/yyyy"/>
+    <parameter name="trainingPrice"/>
+    <parameter name="trainingDuration"/>
+   </in-parameters>
+    <out-parameters>
+        <parameter name="trainingId" type="id"/>
+    </out-parameters>
+</service>
+<!--    Default or Inline Service-->
+    <service verb="create" noun="MoquiTraining" type="inline">
+        <in-parameters>
+            <auto-parameters entity-name="moquitraining.MoquiTraining" include="nonpk"/>
+            <parameter name="trainingName" required="true"/>
+            <parameter name="trainingDate" required="true" format="MM/dd/yyyy"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="trainingId" required="true"/>
+        </out-parameters>
+        <actions>
+            <entity-make-value entity-name="moquitraining.MoquiTraining" value-field="tutorial"/>
+            <entity-set value-field="moquitraining" include="all"/>
+            <if condition="!training.trainingId">
+                <entity-sequenced-id-primary value-field="tutorial"/>
+            </if>
+            <entity-create value-field="moquitraining"/>
+
+        </actions>
+        <transition name="createTutorial">
+            <service-call name="create#MoquiTraining.MoquiTraining" in-map="context" out-map="context"/>
+        </transition>
+
+    </service>
+<!--    Scripting Service-->
+    <service verb="create" noun="MoquiGroovy" type="script">
+        location="component://moquitraining/service/serviceGroovy.groovy">
+        <in-parameters>
+            <auto-parameters entity-name="MoquiTraining" include="all"/>
+        </in-parameters>
+        <out-parameters>
+            <auto-parameters entity-name="MoquiTraining" include="pk" required="true"/>
+        </out-parameters>
+    </service>
+</services>
+
