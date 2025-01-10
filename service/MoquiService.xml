@@ -12,6 +12,7 @@
         <parameter name="trainingId" type="id"/>
     </out-parameters>
 </service>
+
 <!--    Default or Inline Service-->
     <service verb="create" noun="MoquiTraining" type="inline">
         <in-parameters>
@@ -31,12 +32,13 @@
             <entity-create value-field="moquitraining"/>
 
         </actions>
-        <transition name="createTutorial">
+        <transition name="createTraining">
             <service-call name="create#MoquiTraining.MoquiTraining" in-map="context" out-map="context"/>
         </transition>
-
     </service>
+
 <!--    Scripting Service-->
+
     <service verb="create" noun="MoquiGroovy" type="script">
         location="component://moquitraining/service/serviceGroovy.groovy">
         <in-parameters>
