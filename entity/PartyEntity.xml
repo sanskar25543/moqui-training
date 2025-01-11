@@ -9,7 +9,7 @@
     </entity>
 
     <entity entity-name="ContactMech" package="moquitraining">
-        <field name="contactMechId" type="id" is-primary="true" />
+        <field name="contactMechId" type="id" is-pk="true" />
         <field name="partyId" type="id-long" />
         <field name="streetAddress" type="text-medium" not-null="true" />
         <field name="city" type="text-short" />
@@ -21,7 +21,7 @@
     </entity>
 
     <entity entity-name="OrderHeader" package="moquitraining">
-        <field name="orderId" type="id-long" is-primary="true" />
+        <field name="orderId" type="id-long" is-pk="true" />
         <field name="orderDate" type="date" not-null="true" />
         <field name="partyId" type="id-long" />
         <field name="shippingContactMechId" type="id-long" />
@@ -38,7 +38,7 @@
     </entity>
 
     <entity entity-name="OrderItem" package-name="org.example.retail" is-view="false">
-        <field name="orderItemSeqId" type="id-long" is-primary="true" />
+        <field name="orderItemSeqId" type="id-long" is-pk="true" />
         <field name="orderId" type="id-long" />
         <field name="productId" type="id-long" />
         <field name="quantity" type="number-integer" not-null="true" />
