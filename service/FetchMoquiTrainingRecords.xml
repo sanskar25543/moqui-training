@@ -10,12 +10,12 @@
         </in-parameters>
         <out-parameters>
             <parameter name="trainingList" type="List">
-                 <parameter name="trainingMap" type="Map">
-                      <parameter name="trainingId"/>
-                      <parameter name="trainingName"/>
-                      <parameter name="trainingDate"/>
-                 </parameter>
+            <parameter name="trainingMap" type="Map">
+                <parameter name="trainingId"/>
+                <parameter name="trainingName"/>
+                <parameter name="trainingDate"/>
             </parameter>
+        </parameter>
         </out-parameters>
         <actions>
             <entity-find entity-name="MoquiTraining" list="trainingList">

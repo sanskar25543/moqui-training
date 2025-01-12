@@ -1,8 +1,8 @@
 <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-3.xsd"
-          name="party" displayName="Moqui REST API" version="1.0.0">
+          name="party" displayName="Moqui REST API" version="1.0.0" require-authentication="anonymous-all">
 
     <!-- Party Resource -->
-    <resource name="parties" require-authentication="anonymous-all">
+    <resource name="parties">
         <method type="get"><entity name="Party" operation="list"/></method>
         <method type="post"><entity name="Party" operation="create"/></method>
         <id name="partyId">
@@ -24,7 +24,7 @@
     <!--PRODUCT RECORDS-->
     <resource name="product">
         <method type="get"><entity name="Product" operation="list"/></method>
-        <method type="post"><entity name="Product"  operation="create"/></method
+        <method type="post"><entity name="Product"  operation="create"/></method>
                 <id name="productId">
                     <method type="get"><entity name="Product" operation="one"/></method>
                     <method type="put"><entity name="Product" operation="update"/></method>

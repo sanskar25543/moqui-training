@@ -37,7 +37,7 @@
         </relationship>
     </entity>
 
-    <entity entity-name="OrderItem" package-name="org.example.retail" is-view="false">
+    <entity entity-name="OrderItem" package="omoquitraining">
         <field name="orderItemSeqId" type="id-long" is-pk="true" />
         <field name="orderId" type="id-long" />
         <field name="productId" type="id-long" />
@@ -52,7 +52,7 @@
     </entity>
 
     <entity entity-name="Product" package="moquitraining">
-        <field name="productId" type="id-long" is-primary="true" />
+        <field name="productId" type="id-long" is-pk="true" />
         <field name="productName" type="text-medium" not-null="true" />
         <field name="color" type="text-short" />
         <field name="size" type="text-short" />
